@@ -137,7 +137,10 @@ jobs:
           service: ${{ fromJson(inputs.port_payload).context.entity }}
           blueprintIdentifier: 'pagerdutyIncident'
 ```
-6. Trigger the action from Port UI.
+6. Trigger the action from Port's [Self Serve](https://app.getport.io/self-serve)
 ![image](https://github.com/port-labs/pagerduty-incident-gha/assets/51213812/2cda51d4-4594-4f47-9ef4-3b2419b0351a)
+
+7. Done! wait for the incident to be created in Pager Duty
+![image](https://github.com/port-labs/pagerduty-incident-gha/assets/51213812/74cb8aad-e426-4ab1-b388-74b80a5d2eb1)
 
 Congrats 🎉 You've created your first incident in PagerDuty from Port!
