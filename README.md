@@ -138,5 +138,6 @@ jobs:
           blueprintIdentifier: 'pagerdutyIncident'
 ```
 6. Trigger the action from Port UI.
+![image](https://github.com/port-labs/pagerduty-incident-gha/assets/51213812/2cda51d4-4594-4f47-9ef4-3b2419b0351a)
 
 Congrats 🎉 You've created your first incident in PagerDuty from Port!
