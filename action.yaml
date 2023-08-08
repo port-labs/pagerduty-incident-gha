@@ -1,9 +1,9 @@
-name: Port Cookiecutter Action
+name: Port PagerDuty Incident Action
 description: GitHub action to create repositories templated with Cookiecutter with Port integration
 author: port-labs
 inputs:
   token:
-    description: 'The GitHub Token to use to authenticate with the API with permissions to create repositories within the organization (supporting only PATs at this time)'
+    description: 'The Pager Duty Token to use to authenticate with the API with permissions to create incidents'
     required: true
   portClientId:
     description: 'The Port Client ID to use to authenticate with the API'
@@ -12,33 +12,28 @@ inputs:
     description: 'The Port Client Secret to use to authenticate with the API'
     required: true
   blueprintIdentifier:
-    description: 'The blueprint identifier to use to populate the Port'
+    description: 'The blueprint identifier to use to populate the Port relevant entity'
+    required: false
+    default: 'pagerdutyIncident'
+  incidentTitle:
+    description: 'The title of the incident to create'
     required: true
-    default: 'Service'
-  repositoryName:
-    description: 'The name of the repository to create'
+  extraDetails:
+    description: 'Extra details about the incident to create'
+    required: false
+  service:
+    description: 'The service id to correlate the incident to'
     required: true
-  organizationName:
-    description: 'The name of the organization to create the repository in'
-    required: true
-  cookiecutterTemplate:
-    description: 'The cookiecutter template to use to populate the repository'
-    required: true
-  portUserInputs:
-    description: 'Port user inputs to came from triggering the action'
+  urgency:
+    description: 'The urgency of the incident to create'
+    required: false
+    default: 'high'
+  actorEmail:
+    description: 'The email of the actor to create the incident with'
     required: true
   portRunId:
     description: 'Port run ID to came from triggering the action'
     required: true
-  monorepoUrl:
-    description: 'The URL of the monorepo to create the new service in, specify it alongside scaffoldDirectory to open a new pull-request in the monorepo'
-    required: false
-  scaffoldDirectory:
-    description: 'The directory to scaffold the cookiecutter template in'
-    required: false
-  templateDirectory:
-    description: 'The directory to scaffold the cookiecutter template from'
-    required: false
 runs:
   using: docker
   image: Dockerfile

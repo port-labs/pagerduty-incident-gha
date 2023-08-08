@@ -64,6 +64,12 @@ trigger_incident() {
       }")
 
   echo $incident
+
+  if [[ $(echo $incident | jq -r '.error') != "null" ]]; then
+    send_log "Error creating incident: $(echo $incident | jq -r '.error.message')"
+    exit 1
+  fi
+  
   incident_id=$(echo $incident | jq -r '.incident.id')
   incident_html_url=$(echo $incident | jq -r '.incident.html_url')
 
